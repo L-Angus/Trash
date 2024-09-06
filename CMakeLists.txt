@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.0)
+project(RFModule)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED true)
+set(INCLUDE_DIR ./include)
+aux_source_directory(./src SRC)
+add_executable(RFModule ${SRC})
+target_include_directories(RFModule PUBLIC ${INCLUDE_DIR})
