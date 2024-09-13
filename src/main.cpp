@@ -1,7 +1,8 @@
 #include <iostream>
 
-#include "RFModule.hpp"
-#include "userLayer.hpp"
+#include "stim/RFModule.hpp"
+#include "stim/userLayer.hpp"
+#include "kits/csvparser.hpp"
 #include <memory>
 
 using Func = std::function<void()>;
@@ -17,12 +18,9 @@ int main()
 {
     UserSDKImpl userSDK;
 
-    // userSDK.Disconnect().SetFrequency(3.7).Load().Execute();
-    // std::cout << "+++++++++++++++++++++++" << std::endl;
-
-
-    ExeFunc(nullptr);
-    
+    userSDK.Disconnect().SetFrequency(3.7).SetPower(10).Load().Execute();
+    userSDK.Disconnect().SetPower(100).SetFrequency(66).Load().Execute();
+    std::cout << "+++++++++++++++++++++++" << std::endl;
 
     return 0;
 }

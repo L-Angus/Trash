@@ -4,6 +4,8 @@
 #include <iostream>
 #include <map>
 
+#include "ByteCov.hpp"
+
 typedef enum tagMsgType {
   MSG_PACK_INT = 0xA0,
   MSG_PACK_FLOAT,
@@ -26,8 +28,8 @@ typedef struct tagMsgInfo {
 template <class T, class B, class Enable = void> class Serializer {
 public:
   // 改为非侵入式的序列化，反序列化调用
-  static void serialize(B &buf, const T &a) { at_serialize(buf, a); }
-  static void deserialize(B &buf, T &a) { at_deserialize(buf, a); }
+  static void serialize(B &buf, const T &a) { serialize(buf, a); }
+  static void deserialize(B &buf, T &a) { deserialize(buf, a); }
 };
 
 /* 整数类型数据 */
